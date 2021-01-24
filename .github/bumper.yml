@@ -1,0 +1,12 @@
+branch_pattern: release/v{major;int}.{minor;int}.{patch;int}
+
+files:
+  - name: CMake
+    path: CMakeLists.txt
+    replace: "^(Hello: )\\d+\\.\\d+.\\d+$"
+    with: "$1{major}.{minor}.{patch}"
+  - name: Version File
+    path: example/app.txt
+    replace: ".*"
+    with: "{major}.{minor}.{patch}"
+    
